@@ -1,5 +1,3 @@
-#Parte 2 ejercicio 1 Emilia Ortega y Lucio Manitta
-
 import matplotlib.pyplot as plt
 
 repeticion=int(input("Cuantas veces queres que se repita el codigo: "))
@@ -47,12 +45,12 @@ for i in range(0,repeticion):
         y.append(tie)
         x.append(dist)
     variables()
-width=0.25
-plt.plot(x,y,z,color="green")
+print("Los resultados fueron",lista)
+width=0.1
 plt.bar(y,x, width=width, color="red")
 plt.scatter(y,x, color="blue")
-plt.plot(y,x, width=width, color="g")
-plt.ylabel("Tiempo")
-plt.xlabel("Distancia")
+plt.plot(y,x, color="green")
+plt.ylabel("Distancia")
+plt.xlabel("Tiempo")
 plt.title("Distancia sobre tiempo")
 plt.show()
