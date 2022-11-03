@@ -47,8 +47,7 @@ for i in range(0,repeticion):
     variables()
 print("Los resultados fueron",lista)
 width=0.1
-if repeticion<1:
-    plt.bar(y,x, width=width, color="red")
+plt.bar(y,x, width=width, color="red")
 plt.scatter(y,x, color="blue")
 plt.plot(y,x, color="green")
 plt.ylabel("Distancia")
