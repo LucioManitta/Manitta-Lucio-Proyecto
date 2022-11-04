@@ -45,12 +45,20 @@ for i in range(0,repeticion):
         y.append(tie)
         x.append(dist)
     variables()
-print("Los resultados fueron",lista)
-width=0.1
-plt.bar(y,x, width=width, color="red")
+width=0.25
+plt.figure(1)
+plt.bar(y,x, width=width, color="magenta")
 plt.scatter(y,x, color="blue")
-plt.plot(y,x, color="green")
 plt.ylabel("Distancia")
 plt.xlabel("Tiempo")
 plt.title("Distancia sobre tiempo")
 plt.show()
+
+plt.figure(2)
+plt.scatter(y,x, color="blue")
+plt.plot(y,x, color="red")
+plt.ylabel("Distancia")
+plt.xlabel("Tiempo")
+plt.title("Distancia sobre tiempo")
+plt.show()
+
