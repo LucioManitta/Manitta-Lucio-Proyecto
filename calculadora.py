@@ -2,8 +2,10 @@ import matplotlib.pyplot as plt
 
 repeticion=int(input("Cuantas veces queres que se repita el codigo: "))
 lista=[]
-x=[]
-y=[]
+graf1x=[]
+graf1y=[]
+graf2y=[]
+graf2x=[]
 for i in range(0,repeticion):
     def variables():
         vel= float(input("ingrese la velocidad en m/s: "))
@@ -11,7 +13,7 @@ for i in range(0,repeticion):
           vel= float(input("noooo negativo noo ingrese la velocidad devuelta en m/s y positivo: "))
           if vel>0:
             break
-        cabal=float(input("ingrese la distancia del caballo hasta el auto(en metros): "))
+        cabal=float(input("ingrese la distancia del objeto 1 hasta el objeto 2(en metros): "))
         while cabal<0:
           cabal=float(input("noooooo negativo nooo ingrese la distancia del caballo hasta el auto devuelta (en metros y positivo): "))
           if cabal>0:
@@ -42,23 +44,27 @@ for i in range(0,repeticion):
             print("Frenaste en ",tie, "segundos")
             lista.append(dist2)
             lista.append(tie)
-        y.append(tie)
-        x.append(dist)
+        graf1y.append(tie)
+        graf1x.append(dist)
+        graf2x.append(cabal)
+        graf2y.append(dist)
     variables()
 width=0.25
 plt.figure(1)
-plt.bar(y,x, width=width, color="magenta")
-plt.scatter(y,x, color="blue")
+plt.bar(graf1y,graf1x, width=width, color="magenta")
+plt.scatter(graf1y,graf1x, color="blue")
+plt.plot(graf1y, graf1x, color="red")
 plt.ylabel("Distancia")
 plt.xlabel("Tiempo")
 plt.title("Distancia sobre tiempo")
 plt.show()
 
 plt.figure(2)
-plt.scatter(y,x, color="blue")
-plt.plot(y,x, color="red")
-plt.ylabel("Distancia")
-plt.xlabel("Tiempo")
-plt.title("Distancia sobre tiempo")
+plt.bar(graf2y, graf2x, color="magenta")
+plt.scatter(graf2y,graf2x, color="blue")
+plt.plot(graf2y,graf2x, color="red")
+plt.ylabel("objeto 1")
+plt.xlabel("objeto 2")
+plt.title("Distancia objeto 1 a objeto 2")
 plt.show()
 
