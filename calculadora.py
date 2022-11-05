@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 
 repeticion=int(input("Cuantas veces queres que se repita el codigo: "))
-lista=[]
 graf1x=[]
 graf1y=[]
 graf2y=[]
@@ -18,7 +17,7 @@ for i in range(0,repeticion):
           cabal=float(input("noooooo negativo nooo ingrese la distancia del caballo hasta el auto devuelta (en metros y positivo): "))
           if cabal>0:
             break
-        fren= float(input("ingrese a que velocidad el auto desacelera(expresalo en negativo): "))
+        fren= float(input("ingrese a que velocidad el objeto 1 desacelera(expresalo en negativo): "))
         return calculos(vel, cabal, fren)
     def calculos(vel, cabal, fren):
         while fren>0:
@@ -29,27 +28,22 @@ for i in range(0,repeticion):
         tie= calc/fren
         dist= 0+vel*tie+0.5*fren*(tie*tie)
         if dist>cabal:
-            print("Te tragaste a un caballo de frente pobre de el :(")
+            print("El objeto 1 choco al objeto 2")
             c = vel + (1/2)*(0-vel)
             c2 = cabal/c
             acel = (0-vel)/c2
-            print("nececitabas frenar a ", acel, "m/s2 para no chocarte")
-            print("lo chocaste en ",tie, "segundos")
-            lista.append(acel)
-            lista.append(tie)
-
+            print("El objeto 1 necesitaba frenar a ", acel, "m/s2 para no chocar")
+            print("El objeto 1 choco al objeto 2 en",tie, "segundos")
         elif dist<=cabal:
             dist2=cabal-dist
-            print("te quedaste a",dist2, "metros de chocar al caballo")
-            print("Frenaste en ",tie, "segundos")
-            lista.append(dist2)
-            lista.append(tie)
+            print("El objeto 1 se quedo a ",dist2, "metros de chocar")
+            print("El objeto 1 logro frenar en ",tie, "segundos")
         graf1y.append(tie)
         graf1x.append(dist)
         graf2x.append(cabal)
         graf2y.append(dist)
     variables()
-width=0.25
+width=0.1
 plt.figure(1)
 plt.bar(graf1y,graf1x, width=width, color="magenta")
 plt.scatter(graf1y,graf1x, color="blue")
@@ -60,11 +54,11 @@ plt.title("Distancia sobre tiempo")
 plt.show()
 
 plt.figure(2)
-plt.bar(graf2y, graf2x, color="magenta")
+width=2
+plt.bar(graf2y, graf2x, width=width, color="magenta")
 plt.scatter(graf2y,graf2x, color="blue")
 plt.plot(graf2y,graf2x, color="red")
 plt.ylabel("objeto 1")
 plt.xlabel("objeto 2")
 plt.title("Distancia objeto 1 a objeto 2")
 plt.show()
-
